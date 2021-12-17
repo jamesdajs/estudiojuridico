@@ -1,0 +1,7 @@
+{
+  "name": "estudioJuridico",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
