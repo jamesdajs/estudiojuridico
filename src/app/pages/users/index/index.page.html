@@ -17,7 +17,7 @@
   <ng-container *ngFor="let item of listarUsuarios">
     <ion-item  *ngIf="item.estado == estado">
     <ion-icon slot="end" name="ellipsis-vertical" (click)="crud(item)"></ion-icon>
-      <ion-label (click)="ir_linea(item)">{{item.nombres}} {{item.apellidos}}</ion-label>
+      <ion-label (click)="verUsuario(item)">{{item.nombres}} {{item.apellidos}}</ion-label>
   </ion-item>
   </ng-container>
 </ion-content>

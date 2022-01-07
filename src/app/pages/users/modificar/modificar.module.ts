@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { ModificarPageRoutingModule } from './modificar-routing.module';
 
 import { ModificarPage } from './modificar.page';
+import { ComponentsModule } from 'src/app/components/components.module';
 
 @NgModule({
   imports: [
@@ -14,7 +15,8 @@ import { ModificarPage } from './modificar.page';
     FormsModule,
     IonicModule,
     ReactiveFormsModule,
-    ModificarPageRoutingModule
+    ModificarPageRoutingModule,
+    ComponentsModule,//componentes
   ],
   declarations: [ModificarPage]
 })

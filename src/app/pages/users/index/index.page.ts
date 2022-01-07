@@ -76,5 +76,7 @@ export class IndexPage implements OnInit {
 
     await actionSheet.present();
   }
-
+  verUsuario(item){
+    this.navCtrl.navigateForward(['/tabs/users/ver', item])
+  }
 }

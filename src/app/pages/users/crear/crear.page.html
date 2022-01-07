@@ -41,9 +41,11 @@
     <app-validation [error]="registerForm.get('direccion').errors" [variable]="registerForm.get('direccion')"
     nombre="La direccion "></app-validation>
     <ion-item>
-      <ion-label>Notifications</ion-label>
-      <ion-select formControlName="rol" interface="action-sheet">
-        <ion-select-option *ngFor="let item of listarRoles" value="item.tipo">{{item.tipo}}</ion-select-option>
+      <ion-label>roles</ion-label>
+      <ion-select formControlName="rol">
+        <ng-container *ngFor="let item of listarRoles">
+          <ion-select-option  [value]="item.tipo" >{{item.tipo}}</ion-select-option>
+        </ng-container>
       </ion-select>
     </ion-item>
     <app-validation [error]="registerForm.get('rol').errors" [variable]="registerForm.get('rol')"

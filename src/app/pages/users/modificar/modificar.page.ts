@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import {UsersService } from 'src/app/modules/users.service';
 import { NavController } from '@ionic/angular';
+import { RolesService } from 'src/app/modules/roles.service';
 @Component({
   selector: 'app-modificar',
   templateUrl: './modificar.page.html',
@@ -11,29 +12,37 @@ import { NavController } from '@ionic/angular';
 export class ModificarPage implements OnInit {
   registerForm: FormGroup
   id
-
+  listarRoles: any
+  numberRegEx = /\-?\d*\.?\d{1,2}/;
   constructor(private route:ActivatedRoute,
     private formBuilder: FormBuilder,
     private userService:UsersService,
+    private rolesService: RolesService,
     private navCtrl: NavController) { 
     
     let params=route.snapshot.params
     console.log(params);
     this.id=params.id
     this.registerForm = this.formBuilder.group({
-      nombres: [params.nombres],
-      apellidos: [params.apellidos],
-      ci: [params.ci],
-      email: [params.email],
-      celular: [params.celular],
-      direccion: [params.direccion]
+      nombres: [params.nombres,[Validators.required]],
+      apellidos:[params.apellidos,[Validators.required]],
+      ci:[params.ci,[Validators.required,Validators.pattern(this.numberRegEx)]],
+      celular:[params.celular,[Validators.required,Validators.pattern(this.numberRegEx)]],
+      direccion:[params.direccion,[Validators.required]],
+      rol:[params.rol,[Validators.required]],
     });
   }
 
   ngOnInit() {
+    this.listar_roles()
   }
+  listar_roles() {
+    this.rolesService.listarRolesEstado(true).subscribe(datos => {
+      this.listarRoles = datos
+      console.log(this.listarRoles);
 
-
+    })
+  }
   registrate() {
     console.log('en el metodo');
     this.userService.presentLoading("Modificando Usuario...")
