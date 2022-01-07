@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Roles</ion-title>
+    <ion-buttons slot="end">
+      <ion-toggle [(ngModel)]="estado" (ionChange)='cambiarEstado()' color="secondary"></ion-toggle>
+  
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="crearRol()">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+  <ng-container *ngFor="let item of listarRoles">
+    <ion-item *ngIf="item.estado == estado" >
+      <ion-icon slot="end" name="ellipsis-vertical" (click)="crud(item)"></ion-icon>
+        <ion-label (click)="ir_linea(item)">{{item.tipo}}</ion-label>
+    </ion-item>
+  </ng-container>
+   
+
+
+</ion-content>

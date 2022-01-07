@@ -1,0 +1,77 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Agregar Usuario</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <form [formGroup]="registerForm" (ngSubmit)="registrate()">
+    <ion-item>
+      <ion-label position="stacked"> Nombres</ion-label>
+      <ion-input formControlName="nombres" type="text"></ion-input>
+    </ion-item>
+    <app-validation [error]="registerForm.get('nombres').errors" [variable]="registerForm.get('nombres')"
+    nombre="El nombre "></app-validation>
+    <ion-item>
+      <ion-label position="stacked"> Apellidos</ion-label>
+      <ion-input formControlName="apellidos" type="text"></ion-input>
+    </ion-item>
+    <app-validation [error]="registerForm.get('apellidos').errors" [variable]="registerForm.get('apellidos')"
+    nombre="El apellido "></app-validation>
+    <ion-item>
+      <ion-label position="stacked"> CI</ion-label>
+      <ion-input formControlName="ci" type="text"></ion-input>
+    </ion-item>
+    <app-validation [error]="registerForm.get('ci').errors" [variable]="registerForm.get('ci')"
+    nombre="El CI "></app-validation>
+    <ion-item>
+      <ion-label position="stacked"> Celular</ion-label>
+      <ion-input formControlName="celular" type="text"></ion-input>
+    </ion-item>
+    <app-validation [error]="registerForm.get('celular').errors" [variable]="registerForm.get('celular')"
+    nombre="El celular "></app-validation>
+    <ion-item>
+      <ion-label position="stacked"> Dirección</ion-label>
+      <ion-input formControlName="direccion" type="text"></ion-input>
+    </ion-item>
+    <app-validation [error]="registerForm.get('direccion').errors" [variable]="registerForm.get('direccion')"
+    nombre="La direccion "></app-validation>
+    <ion-item>
+      <ion-label>Notifications</ion-label>
+      <ion-select formControlName="rol" interface="action-sheet">
+        <ion-select-option *ngFor="let item of listarRoles" value="item.tipo">{{item.tipo}}</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <app-validation [error]="registerForm.get('rol').errors" [variable]="registerForm.get('rol')"
+    nombre="El rol "></app-validation>
+    <ion-list-header lines="inset">
+      <ion-label>Datos de inicio de sesion</ion-label>
+    </ion-list-header>
+    <ion-item>
+      <ion-label position="stacked"> Email</ion-label>
+      <ion-input formControlName="email" type="email"></ion-input>
+    </ion-item>
+    <app-validation [error]="registerForm.get('email').errors" [variable]="registerForm.get('email')"
+    nombre="El correo electrónico "></app-validation>
+    <ion-item>
+      <ion-label position="stacked"> Contraseña</ion-label>
+      <ion-input  type="password"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Repetir contraseña</ion-label>
+      <ion-input  type="password"></ion-input>
+    </ion-item>
+    <ion-button expand="block" type="submit" [disabled]="!registerForm.valid">
+      Registrar
+    </ion-button>
+  </form>
+  </ion-list>
+   
+    
+   
+  
+</ion-content>

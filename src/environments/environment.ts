@@ -5,13 +5,20 @@
 export const environment = {
   production: false,
   firebaseConfig: {
-    apiKey: "AIzaSyDKeZUFBJjwxGHRppMmNcEawQUus7nuZvQ",
+    apiKey: "AIzaSyBOzkB1WzhaG2fXMXv7K37_6aOqioj98bA",
+    authDomain: "estudiojuridico1-51f76.firebaseapp.com",
+    projectId: "estudiojuridico1-51f76",
+    storageBucket: "estudiojuridico1-51f76.appspot.com",
+    messagingSenderId: "35764853466",
+    appId: "1:35764853466:web:6cd0eb3cb6065af80923e3",
+    measurementId: "G-BT0161J2B3"
+   /* apiKey: "AIzaSyDKeZUFBJjwxGHRppMmNcEawQUus7nuZvQ",
     authDomain: "estudiojuridico-fe44f.firebaseapp.com",
     projectId: "estudiojuridico-fe44f",
     storageBucket: "estudiojuridico-fe44f.appspot.com",
     messagingSenderId: "474013319307",
     appId: "1:474013319307:web:83459556fb03f8025fd48e",
-    measurementId: "G-262Z4DHJT4"
+    measurementId: "G-262Z4DHJT4"*/
   }
 };
 
